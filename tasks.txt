@@ -1,0 +1,4 @@
+Tasks to complete this project
+1. Create a sample database(100 species)
+2. Create an alert program
+3. Create a web-application
