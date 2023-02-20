@@ -10,7 +10,7 @@ def store():
             datalist.append(row)
     file.close()
 def restore():
-    file = open("coordinates.csv", 'w')
+    file = open("coordinates.csv", 'w',newline="")
     csv_writer = csv.writer(file)
     csv_writer.writerows(datalist)
     file.close()
