@@ -30,7 +30,7 @@ def main():
                 datalist.append([name,Latitude1,Latitude2,Longitude1,Longitude2])
             else:
                 break
+            restore()
     except:
         restore()
-    restore()
 main()

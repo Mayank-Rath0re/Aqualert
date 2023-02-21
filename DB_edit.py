@@ -50,7 +50,7 @@ def main():
     global max_key
     csv_store()
     max_key=int(get_max_sno())
-    print(Coordinates)
+    print(Coordinates.keys())
     while True:
         print("1. Enter Data")
         print("2. Rollback Last Function")
