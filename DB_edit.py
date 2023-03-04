@@ -1,8 +1,8 @@
 import mysql.connector
-import csv
 Coordinates={}
+database_name='aqualert'
 max_key=0
-db = mysql.connector.connect(host="localhost",user="root",password="root",database="aqualert")
+db = mysql.connector.connect(host="localhost",user="root",password="root",database=f"{database_name}")
 cursor=db.cursor()
 def get_max_sno():
     cursor.execute("SELECT MAX(SNo) FROM species;")
@@ -13,15 +13,12 @@ def get_max_sno():
             max_key=i[0]
     return max_key
 
-def csv_store():
-    file=open("coordinates.csv","r")
-    csv_reader=csv.reader(file)
-    for i in csv_reader:
-        print(i)
-        Coordinates[i[0]]=[(i[1],i[3]),(i[2],i[4])]
-    file.close()
+def coordinates_store():   #RNo, Region, Latitude1, Latitude2, Longitude1, Longitude2
+    cursor.execute("SELECT * FROM coordinates;")
+    for i in cursor:
+        Coordinates[i[1]]=(i[0],i[2],i[3],i[4],i[5])
 
-def inp_data():
+def inp_data():    #SNo, Name, Region, Duration, RNo
     global max_key
     Name=input("Enter Species Name: ")
     duration=input("When are they found: ")
@@ -31,7 +28,8 @@ def inp_data():
         if region not in Coordinates:
             print(region," not found in coordinates")
         else:
-            final_query=f"INSERT INTO species VALUES({max_key+1},\"{Name}\",{Coordinates[region][0][0]},{Coordinates[region][1][0]},{Coordinates[region][0][1]},{Coordinates[region][1][1]},\"{region}\",\"{duration}\");"
+            final_query=f"INSERT INTO species VALUES({max_key+1},\"{Name}\",\"{region}\",\"{duration}\",{Coordinates[region][0]});"
+            print(final_query)
             cursor.execute(final_query)
             max_key+=1
     db.commit()
@@ -48,7 +46,7 @@ def rollback():
 
 def main():
     global max_key
-    csv_store()
+    coordinates_store()
     max_key=int(get_max_sno())
     print(Coordinates.keys())
     while True:
