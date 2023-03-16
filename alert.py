@@ -2,14 +2,15 @@ import geocoder
 import mysql.connector
 def get_user_location():
     #Needs to be checked.
-    g = geocoder.ip('me')
+    g = geocoder.ip('103.27.9.24')
+    print(g)
     return g.latlng
 
 def check_species(location):
     ls_species=[]
     mydb=mysql.connector.connect(host='localhost',user='root',password='root',database='aqualert')
     my_cursor=mydb.cursor()
-    query = f"SELECT * FROM species where ({location[0]} between Latitude1 and Latitude2) and ({location[1]} between Longitude1 and Longitude2);"
+    query = f"SELECT * FROM coordinates where ({location[0]} between Latitude1 and Latitude2) and ({location[1]} between Longitude1 and Longitude2);"
     my_cursor.execute(query)
     for i in my_cursor:
         if i=="":
