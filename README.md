@@ -36,6 +36,7 @@ Create an application to alert users about the dangerous aquatic life near them.
 
 5. geocoder module- Python
 	To install geocoder module for Python, run either of the following commands:
+	
 		pip install geocoder
 		
 		pip3 install geocoder
