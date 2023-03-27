@@ -1,4 +1,0 @@
-Python 3.x must be installed in the system.
-Geocoder module must be installed
-To install geocoder, write the following command in command prompt:
-pip install geocoder
