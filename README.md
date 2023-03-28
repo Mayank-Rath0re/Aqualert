@@ -9,7 +9,7 @@ Create an application to alert users about the dangerous aquatic life near them.
 
 # APPROACH
 
-1. Receive Client Location via Google Maps.
+1. Receive Client Location by the help of location.py file and passing the data to aqualert.py as parameters.
 2. Host our application as a python file on a cloud VM taking user's latitude and longitude as parameters.
 3. Programs takes user's coordinates and uses it to filter on database created by us.
 4. If any dangerous species are found near him/her, An E-mail is generated via G-mail.

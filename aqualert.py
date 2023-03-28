@@ -1,16 +1,10 @@
 import mysql.connector
 import datetime
 import alert_generate
-import geocoder
-import subprocess
+import location 
 
 Seasons = {"All Year":[1,2,3,4,5,6,7,8,9,10,11,12],"Summer":[5,6,7,8],"Winter":[1,2,11,12],"Spring":[3,4],"Autumn":[9,10]}
 
-def get_location():
-    ip = subprocess.run(["curl","ifconfig.me"],capture_output=True).stdout.decode('ascii')
-    print(ip)
-    g = geocoder.ip(ip)
-    return g.latlng
 
 def main():
     try:
@@ -32,7 +26,7 @@ def main():
         RNo=0
         species=[]
         final_species=[]
-        latitude,longitude = get_location()
+        latitude,longitude = location.get_location()
         cursor.execute(f"SELECT RNo FROM coordinates where {latitude} between Latitude1 and Latitude2 and {longitude} between Longitude1 and Longitude2;")
         for i in cursor:
             if i=='':
