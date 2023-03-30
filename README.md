@@ -39,6 +39,12 @@ Create an application to alert users about the dangerous aquatic life near them.
 Being an independent project, we didn't had access to get user's exact location. So, we
 couldn't automate than part of the code on our own. 
 However, Google have the access to do so and can proceed with it.
+5. geocoder module- Python
+	To install geocoder module for Python, run either of the following commands:
+	
+		pip install geocoder
+		
+		pip3 install geocoder
 
 # How to Run
 
