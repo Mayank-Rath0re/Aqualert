@@ -9,7 +9,7 @@ Create an application to alert users about the dangerous aquatic life near them.
 
 # APPROACH
 
-1. Receive Client Location by the help of location.py file and passing the data to aqualert.py as parameters.
+1. Receive Client Location.
 2. Host our application as a python file on a cloud VM taking user's latitude and longitude as parameters.
 3. Programs takes user's coordinates and uses it to filter on database created by us.
 4. If any dangerous species are found near him/her, An E-mail is generated via G-mail.
@@ -34,10 +34,11 @@ Create an application to alert users about the dangerous aquatic life near them.
 	After Meeting all the previous 3 pre-requisites, run the upload_db.py file using
 	Python.
 
-5. geocoder module- Python
-	To install geocoder module for Python, run either of the following commands:
-	pip install geocoder
-	pip3 install geocoder
+# NOTE
+
+Being an independent project, we didn't had access to get user's exact location. So, we
+couldn't automate than part of the code on our own. 
+However, Google have the access to do so and can proceed with it.
 
 # How to Run
 

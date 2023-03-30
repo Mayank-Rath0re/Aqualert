@@ -18,14 +18,14 @@ def email_content(species):
         content += "\n"
         count+=1
     content += "\n Images of the alerted species are attached with the mail for easier recognition."
+    content += "\n https://drive.google.com/drive/folders/1vCw5zpHSFuU7r4TCZNtv47XpiG3-O7H1?usp=share_link"
     return content
 
-def mail(species):
+def mail(receiver, species):
     e_add= 'mailtest0597@gmail.com'#senders email id
     e_pass = "dgnvvokxjohlebsr" #your gmail password
 
     msg=EmailMessage()
-    receiver=input("Enter your email id:")#The user enters their email id
     msg["Subject"] = f"Aqualert Warning: {len(species)} dangerous aquatic species near you."#Enter the subject
     msg["From"]=e_add
     msg["To"]=receiver
